@@ -13,22 +13,28 @@
 
     <title>Java Script Test</title>
 </head>
-<body>
-    <h1 class="timer">Time Left 10:00</h1>
+<body id="body">
+  <div class="row topTxt">
+    <p class="col-sm-3 highscoreTxt">View Highscores</p>
+    <div class="col-sm-6"></div>
+    <p class="col-sm-3 time">Time Left:</p>
+  </div>
 
-    <div class="card">
-        <div class="card-header">
+    <div class="card" id="card">
+        <div class="card-header" id="cardHead">
           Question # ...
         </div>
-        <div class="card-body">
+        <div class="card-body" id="cardBody">
           <h5 class="card-title">Question goes here!</h5>
           <p class="card-text">Answer A</p>
           <p class="card-text">Answer B</p>
           <p class="card-text">Answer C</p>
           <p class="card-text">Answer D</p>
+          <button type="button" class="btn btn-primary" id="beginBtn">Click here to begin your quiz!</button>
         </div>
     </div>
     <div class="answerTxt">Hidden text... Right or Wrong?</div>
 
+<script type="text/javascript" src="./script.js"></script>
 </body>
 </html>

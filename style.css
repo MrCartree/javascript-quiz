@@ -1,7 +1,41 @@
-.card {
-    margin: 40px;
+#body {
+    background-color: blueviolet;
+}
+
+.topTxt {
+    margin: 20px;
+    color: blanchedalmond;
+}
+
+.highscoreTxt {
+    text-align: center;
+}
+
+.time {
+    text-align: center;
+}
+
+#card {
+    margin: 15px 40px;
+    border: none;
+}
+
+#cardHead {
+    background-color: pink;
+}
+
+#cardBody {
+    background-color: aquamarine;
+}
+
+#beginBtn {
+    background-color: plum;
+    color: black;
+    border: none;
 }
 
 .answerTxt {
-    margin-left: 45px;
+    margin-left: 50px;
+    margin-top: 10px;
+    color: blanchedalmond;
 }
