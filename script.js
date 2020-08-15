@@ -6,18 +6,18 @@ let timeTxt = document.getElementById("time")
 let secondsLeft = 60;
 
 function timerStart() {
-    timeTxt = secondsLeft;
+    startBtn.className = "hide";
     let timeHandler = setInterval(function() {
+        timeTxt.innerText = "Seconds left: " + secondsLeft;
         secondsLeft--
         if (secondsLeft < 0) {
             clearInterval(timeHandler);
-    
         }
     }, 1000);
 };
 
+// Starts the Timer
 startBtn.addEventListener("click", function() {
-    console.log("Hello from your button!")
     timerStart();
 });
 

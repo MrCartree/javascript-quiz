@@ -11,7 +11,7 @@
     text-align: center;
 }
 
-.time {
+#time {
     text-align: center;
 }
 
@@ -38,4 +38,9 @@
     margin-left: 50px;
     margin-top: 10px;
     color: blanchedalmond;
+}
+
+/* Is a class used to hide items */
+.hide {
+    display: none;
 }
