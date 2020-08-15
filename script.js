@@ -1,9 +1,14 @@
+// declaring global variables
 let startBtn = document.getElementById("beginBtn");
-let timeTxt = document.getElementById("time")
-let 
+let timeTxt = document.getElementById("time");
+let questionSpot = document.getElementById("questionSpot");
+let answerA = document.getElementById("answerA")
+let answerB = document.getElementById("answerB")
+let answerC = document.getElementById("answerC")
+let answerD = document.getElementById("answerD")
 
 // objects for storing questions and answers
-const questions = {
+let questions = {
     question1: "What is 2 + 2?",
     question2: "",
     question3: "",
@@ -13,9 +18,18 @@ const questions = {
 
 let answer1 = {
     answerA: "4",
-    ansewrB: "11",
-    ansewrC: "5",
-    ansewrD: "9",
+    answerB: "11",
+    answerC: "5",
+    answerD: "9",
+};
+
+// Repopulation of internal stuff
+function repop() {
+    questionSpot.textContent = questions.question1;
+    answerA.textContent = answer1.answerA;
+    answerB.textContent = answer1.answerB;
+    answerC.textContent = answer1.answerC;
+    answerD.textContent = answer1.answerD;
 };
 
 
@@ -37,4 +51,5 @@ function timerStart() {
 // Starts the Timer
 startBtn.addEventListener("click", function() {
     timerStart();
+    repop();
 });
