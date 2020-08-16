@@ -29,6 +29,12 @@
     background-color: aquamarine;
 }
 
+#answerEl {
+    list-style-type: upper-alpha;
+    padding-left: 50px;
+
+}
+
 #beginBtn {
     background-color: plum;
     color: black;
@@ -41,7 +47,11 @@
     color: blanchedalmond;
 }
 
-/* Is a class used to hide items */
+/* these classes are used to hide and show items*/
 .hide {
     display: none;
+}
+
+.show {
+    display: contents;
 }

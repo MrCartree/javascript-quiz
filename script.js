@@ -1,6 +1,10 @@
 // declaring global variables
 let startBtn = document.querySelector("#beginBtn");
 let timeTxt = document.querySelector("#time");
+let questionAsk = document.querySelector("#questionAsk")
+let questionNum = 0
+let ulEl = document.querySelector(".ulEl");
+let answerEl = document.querySelector("#answerEl")
 
 // objects for storing questions and answers
 
@@ -36,24 +40,26 @@ let qAndA = [
     }
 ];
 
-// Element creation/appending
-// let createQ = document.createElement("h5");
-// let createUl = document.createElement("ul");
-// createQ.append("#cardBody")
 
 // displays and appends content
 function display() {
-    for (let i = 0; i < qAndA.length; i++) {
-        let userQuestion = qAndA[i].question
-        let userAnswer = qAndA[i].answer
-        createQ.textContent = userQuestion
-    }
+    ulEl.className = "show";
+    let userQuestion = qAndA[questionNum].question;
+    let userAnswer = qAndA[questionNum].answer;
+    questionAsk.textContent = userQuestion;
+    userAnswer.forEach(function (newQuestion) {
+        let listQuestion = document.createElement('li');
+        listQuestion.textContent = newQuestion;
+        listQuestion.addEventListener("click", function () {
+
+        });
+    });
 }
 
 // CountDown timer
 let secondsLeft = 60;
 function timerStart() {
-    let timeHandler = setInterval(function() {
+    let timeHandler = setInterval(function () {
         timeTxt.innerText = "Seconds left: " + secondsLeft;
         secondsLeft--
         if (secondsLeft < 0) {
@@ -71,7 +77,6 @@ let pTxt3 = document.querySelector(".pTxt3");
 let pTxt4 = document.querySelector(".pTxt4");
 
 function hide() {
-    questionTxt.className = "hide";
     pTxt1.className = "hide";
     pTxt2.className = "hide";
     pTxt3.className = "hide";
@@ -80,8 +85,8 @@ function hide() {
 };
 
 // Starts the Timer
-startBtn.addEventListener("click", function() {
+startBtn.addEventListener("click", function () {
     timerStart();
-    // hide();
+    hide();
     display();
 });
