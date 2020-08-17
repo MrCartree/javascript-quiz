@@ -40,28 +40,8 @@ let qAndA = [
     }
 ];
 
-
-// displays and appends content
-function display() {
-    const listEl = document.querySelectorAll("li");
-    ulEl.className = "show";
-    const currentQuestion = qAndA[questionNum];
-    let questionTxt = currentQuestion.question;
-    let userAnswer = currentQuestion.answer;
-    questionAsk.textContent = questionTxt;
-    userAnswer.forEach(function (userChoice, index) {
-        let listQuestion = listEl[index];
-        listQuestion.textContent = userChoice;
-        listQuestion.addEventListener("click", function () {
-           if (userChoice === currentQuestion.correctA) {
-               
-           }
-        });
-    });
-}
-
 // CountDown timer
-let secondsLeft = 60;
+let secondsLeft = 120;
 function timerStart() {
     let timeHandler = setInterval(function () {
         timeTxt.innerText = "Seconds left: " + secondsLeft;
@@ -73,24 +53,39 @@ function timerStart() {
 
 };
 
-// Hide function
-let questionTxt = document.querySelector(".questionTxt");
-let pTxt1 = document.querySelector(".pTxt1");
-let pTxt2 = document.querySelector(".pTxt2");
-let pTxt3 = document.querySelector(".pTxt3");
-let pTxt4 = document.querySelector(".pTxt4");
+// displays and appends content
+function display() {
+    const listEl = document.querySelectorAll("li");
+    ulEl.className = "show";
+    const currentQuestion = qAndA[questionNum];
+    questionAsk.textContent = currentQuestion.question;
+    currentQuestion.answer.forEach(function (userChoice, index) {
+        let listQuestion = listEl[index];
+        listQuestion.textContent = userChoice;
+        if (questionNum === 0) {
+            listQuestion.addEventListener("click", function () {
+                if (userChoice !== currentQuestion.correctA) {
+                    secondsLeft -= 10;
+                }
+                questionNum++;
+                if (questionNum === qAndA.length) {
+                    hide("answerEl");
+                } else {
+                    display();
+                }
+            });
+        }
+    });
+}
 
-function hide() {
-    pTxt1.className = "hide";
-    pTxt2.className = "hide";
-    pTxt3.className = "hide";
-    pTxt4.className = "hide";
-    startBtn.className = "hide";
+// Hide function
+function hide(id) {
+    document.getElementById(id).className = "hide";
 };
 
 // Starts the Timer
 startBtn.addEventListener("click", function () {
     timerStart();
-    hide();
+    hide("introCont");
     display();
 });

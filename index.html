@@ -17,7 +17,7 @@
   <div class="row topTxt">
     <p class="col-sm-3 highscoreTxt">View Highscores</p>
     <div class="col-sm-6"></div>
-    <p class="col-sm-3" id="time">Seconds left: 60</p>
+    <p class="col-sm-3" id="time">Seconds left: 120</p>
   </div>
 
     <div class="card" id="card">
@@ -26,8 +26,8 @@
         </div>
         <div class="card-body" id="cardBody">
 
-          <h5 class="card-title questionTxt" id="questionAsk">This is a timed quiz! Your question will appear here!</h5>
           <div id="answerEl">
+            <h5 class="card-title" id="questionAsk">This is a timed quiz! Your question will appear here!</h5>
             <ul class="hide ulEl">
               <li></li>
               <li></li>
@@ -35,15 +35,17 @@
               <li></li>
             </ul>
           </div>
-          <p class="card-text pTxt1">Answers will be displayed here!</p>
-
-          <p class="card-text pTxt2">Your score can increase by how quickly your quiz is completed</p>
-
-          <p class="card-text pTxt3">Click "View highscores at the top to see all highscores!</p>
-
-          <p class="card-text pTxt4">You can only continue to the next question by getting the answer correct! Good luck!</p>
-
-          <button type="button" class="btn btn-primary" id="beginBtn">Click here to begin your quiz!</button>
+          <div id="introCont">
+            <p class="card-text">Answers will be displayed here!</p>
+  
+            <p class="card-text">Your score can increase by how quickly your quiz is completed</p>
+  
+            <p class="card-text">Click "View highscores at the top to see all highscores!</p>
+  
+            <p class="card-text">You can only continue to the next question by getting the answer correct! Good luck!</p>
+  
+            <button type="button" class="btn btn-primary" id="beginBtn">Click here to begin your quiz!</button>
+          </div>
 
         </div>
     </div>
