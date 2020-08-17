@@ -15,7 +15,7 @@
 </head>
 <body id="body">
   <div class="row topTxt">
-    <p class="col-sm-3 highscoreTxt">View Highscores</p>
+    <p class="col-sm-3 highscoreTxt" id="highscoreTxt">View Highscores</p>
     <div class="col-sm-6"></div>
     <p class="col-sm-3" id="time">Seconds left: 120</p>
   </div>
@@ -46,18 +46,20 @@
   
             <button type="button" class="btn btn-primary" id="beginBtn">Click here to begin your quiz!</button>
           </div>
-          <div class="row">
-            <input id="initials" class="col-sm-6"/>
-            <button id="submitToMyWill" class="col-sm-6">Post Highscore</button>
-            <div id="highscores">
-              <ol id="scoreList">
-              </ol>
+          <div id="scoresCont" class="hide">
+            <div class="row">
+              <input id="initials" class="col-sm-6"/>
+              <button id="submitToMyWill" class="col-sm-6">Post Highscore</button>
+              <div id="highscores">
+                <ol id="scoreList">
+                </ol>
+              </div>
             </div>
           </div>
 
         </div>
     </div>
-    <div class="answerTxt">Hidden text... Right or Wrong?</div>
+    <div id="correctness" class="answerTxt">Hidden text... Right or Wrong?</div>
 
 <script type="text/javascript" src="./script.js"></script>
 </body>
