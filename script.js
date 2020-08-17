@@ -5,6 +5,7 @@ let questionAsk = document.querySelector("#questionAsk")
 let questionNum = 0
 let ulEl = document.querySelector(".ulEl");
 let answerEl = document.querySelector("#answerEl")
+let submitHi = document.getElementById("submitToMyWill");
 
 // objects for storing questions and answers
 
@@ -76,6 +77,33 @@ function display() {
             });
         }
     });
+}
+
+// On click listener for Submit HS
+submitHi.addEventListener("click", function() {
+    let initial = document.getElementById("initials")
+    const highscores = JSON.parse(localStorage.getItem("highscores") || "[]");
+    highscores.push({
+        initial: initial.value,
+        score: secondsLeft,
+    });
+    localStorage.setItem('highscores', JSON.stringify(highscores))
+    showHi();
+});
+ 
+// show highscore function
+function showHi() {
+    let scoreList = document.getElementById("scoreList");
+    JSON.parse(localStorage.getItem("highscores"))
+        .sort(function(left, right) {
+            return right.score - left.score;
+        })
+        .forEach(function(score) {
+            let newScore = document.createElement("li");
+            newScore.textContent = `${score.initial} - ${score.score}`;
+            scoreList.appendChild(newScore);
+        });
+    
 }
 
 // Hide function
