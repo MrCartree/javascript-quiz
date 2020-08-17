@@ -43,15 +43,19 @@ let qAndA = [
 
 // displays and appends content
 function display() {
+    const listEl = document.querySelectorAll("li");
     ulEl.className = "show";
-    let userQuestion = qAndA[questionNum].question;
-    let userAnswer = qAndA[questionNum].answer;
-    questionAsk.textContent = userQuestion;
-    userAnswer.forEach(function (newQuestion) {
-        let listQuestion = document.createElement('li');
-        listQuestion.textContent = newQuestion;
+    const currentQuestion = qAndA[questionNum];
+    let questionTxt = currentQuestion.question;
+    let userAnswer = currentQuestion.answer;
+    questionAsk.textContent = questionTxt;
+    userAnswer.forEach(function (userChoice, index) {
+        let listQuestion = listEl[index];
+        listQuestion.textContent = userChoice;
         listQuestion.addEventListener("click", function () {
-
+           if (userChoice === currentQuestion.correctA) {
+               
+           }
         });
     });
 }
