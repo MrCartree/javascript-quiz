@@ -2,7 +2,7 @@
 
 Java Scrip Quiz is a wondrus quiz on Java Script with a nice and tasty vapor wave aesthetic. While quizing yourself on the Java Scripts please enjoy the nice crisp taste of what is the vaporwave aesthetic.
 
-![Java Script Quiz Snap](assets/images/screenshot.PNG)
+![Java Script Quiz Snap](assets/screenshot.PNG)
 
 This is deployed [here](https://mrcartree.github.io/password-generator/)
 
