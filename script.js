@@ -61,6 +61,7 @@ function timerStart() {
 
 };
 
+// setting click listeners on list items and comparing them to correct answers
 document.querySelectorAll("li").forEach((listItem) => {
     listItem.addEventListener('click', function () {
         const question = getCurrentQuestion();
