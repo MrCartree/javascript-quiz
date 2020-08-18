@@ -36,10 +36,14 @@ let qAndA = [
 
     {
         question: "Who is the baddest of them all?",
-        answer: ["Krispy Creme", "Froggy Fresh", "Tyler Cassidy", "All of the above"],
+        answer: ["Krispy Kreme", "Froggy Fresh", "Tyler Cassidy", "All of the above"],
         correctA: "All of the above"
     }
 ];
+
+function getCurrentQuestion() {
+    return qAndA[questionNum];
+}
 
 // CountDown timer
 let secondsLeft = 120;
@@ -57,33 +61,39 @@ function timerStart() {
 
 };
 
+document.querySelectorAll("li").forEach((listItem) => {
+    listItem.addEventListener('click', function () {
+        const question = getCurrentQuestion();
+        const answerIndex = parseInt(listItem.getAttribute('data-index'));
+
+        if (question.answer[answerIndex] === question.correctA) {
+            document.getElementById("correctness").textContent = "CORRECT";
+        } else {
+            document.getElementById("correctness").textContent = "INCORRECT"
+            secondsLeft -= 10;
+        }
+
+        questionNum++;
+
+        if (questionNum === qAndA.length) {
+            clearInterval(timeHandler)
+            hide("answerEl");
+            document.getElementById("scoresCont").className = ""
+        } else {
+            display();
+        }
+    });
+});
+
 // displays and appends content
 function display() {
     const listEl = document.querySelectorAll("li");
-    ulEl.className = "show";
-    const currentQuestion = qAndA[questionNum];
+    ulEl.className = "show ulEl";
+    const currentQuestion = getCurrentQuestion();
     questionAsk.textContent = currentQuestion.question;
     currentQuestion.answer.forEach(function (userChoice, index) {
         let listQuestion = listEl[index];
         listQuestion.textContent = userChoice;
-        if (questionNum === 0) {
-            listQuestion.addEventListener("click", function () {
-                if (userChoice !== currentQuestion.correctA) {
-                    document.getElementById("correctness").textContent = "INCORRECT"
-                    secondsLeft -= 10;
-                } else {
-                    document.getElementById("correctness").textContent = "CORRECT"
-                }
-                questionNum++;
-                if (questionNum === qAndA.length) {
-                    clearInterval(timeHandler)
-                    hide("answerEl");
-                    document.getElementById("scoresCont").className = ""
-                } else {
-                    display();
-                }
-            });
-        }
     });
 }
 
